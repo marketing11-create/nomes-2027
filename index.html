@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nomes dos lançamentos 2027 · Dellamed</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --navy:#1e2c4f;--navy-2:#26375f;--navy-3:#17223e;--sky:#8bb8e8;--red:#a6192e;
+  --white:#fff;--light:#f0f0f0;--bg:#17223e;--ink:#282727;--silver:#bcbcbc;
+  --tx:#ffffff;--tx-2:rgba(255,255,255,.78);--tx-3:rgba(255,255,255,.6);
+  --line:rgba(255,255,255,.14);--line-2:rgba(255,255,255,.26);
+  --surface:rgba(255,255,255,.045);--surface-2:rgba(255,255,255,.08);
+  --font-title:'Montserrat','Segoe UI',Arial,sans-serif;
+  --font-body:'Open Sans','Segoe UI',Arial,sans-serif;
+  --radius:18px;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{overflow-x:clip}
+body{margin:0;color:var(--tx);font-family:var(--font-body);font-size:16px;line-height:1.5;
+  background:var(--navy-3);
+  background-image:radial-gradient(ellipse 80% 50% at 85% 0%,rgba(139,184,232,.16),transparent 70%),linear-gradient(180deg,var(--navy) 0%,var(--navy-3) 900px);
+  background-repeat:no-repeat;min-height:100vh}
+img{max-width:100%;display:block}
+button,input,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--sky);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* Cabeçalho */
+.top{position:relative;isolation:isolate;overflow:hidden}
+.top::before{content:"";position:absolute;inset:0;z-index:-1;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='60'%3E%3Ctext x='0' y='18' font-family='monospace' font-size='14' fill='white'%3E0 1 1 0 1 0 0 1%3C/text%3E%3Ctext x='-8' y='42' font-family='monospace' font-size='14' fill='white'%3E1 0 0 1 1 0 1 0%3C/text%3E%3C/svg%3E");
+  -webkit-mask-image:linear-gradient(100deg,transparent 50%,#000 85%,transparent);mask-image:linear-gradient(100deg,transparent 50%,#000 85%,transparent)}
+.top .wrap{padding-top:36px;padding-bottom:48px}
+.logo{height:32px;width:auto;margin-bottom:56px}
+.kicker{font-family:var(--font-title);font-weight:500;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--sky);margin:0 0 14px}
+h1{font-family:var(--font-title);font-weight:300;font-size:clamp(34px,5.4vw,62px);line-height:1.05;margin:0 0 20px;letter-spacing:-.02em;max-width:14ch}
+h1 b{font-weight:700}
+.lead{margin:0;max-width:60ch;color:var(--tx-2);font-size:17px}
+.who{margin:18px 0 0;font-size:14px;color:var(--tx-3)}
+.who:empty{display:none}
+
+/* Barra de controles */
+.bar{position:sticky;top:0;z-index:5;background:rgba(23,34,62,.94);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;padding-top:12px;padding-bottom:12px}
+.tabs,.chips{display:flex;gap:6px;flex-wrap:wrap}
+.tab,.chip{border:1px solid var(--line-2);background:transparent;color:var(--tx);border-radius:999px;padding:8px 16px;min-height:40px;cursor:pointer;font-weight:600;font-size:14px;transition:background-color .15s,border-color .15s,color .15s}
+.tab:hover,.chip:hover{border-color:var(--sky);background:var(--surface-2)}
+.tab[aria-selected="true"],.chip[aria-pressed="true"]{background:var(--white);border-color:var(--white);color:var(--navy)}
+.chip .n{opacity:.65;font-weight:400;margin-left:4px}
+.status{margin-left:auto;font-size:14px;color:var(--tx-2);display:flex;align-items:center;gap:8px;min-height:24px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--silver);flex:none}
+.status.ok .dot{background:#5fd39a}.status.busy .dot{background:var(--sky)}.status.err .dot{background:#ff8a8a}
+.status.err{color:var(--tx)}
+.progress{font-size:14px;color:var(--tx-2);font-variant-numeric:tabular-nums}
+.progress b{color:var(--tx)}
+
+/* Aviso */
+.notice{margin:24px 0 0;padding:14px 18px;border-radius:12px;background:var(--surface-2);border:1px solid var(--line-2);font-size:15px;color:var(--tx)}
+
+/* Cards de produto */
+main{padding:36px 0 80px}
+.list{display:grid;gap:28px}
+.card{background:var(--navy-2);border:1px solid var(--line);border-radius:var(--radius);display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);overflow:hidden;box-shadow:0 24px 48px -28px rgba(0,0,0,.6)}
+.photo{background:radial-gradient(circle at 50% 52%,rgba(139,184,232,.24),rgba(139,184,232,0) 62%),var(--navy-2);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px;gap:12px;min-height:360px;position:relative}
+.photo img{max-height:290px;width:auto;object-fit:contain;filter:drop-shadow(0 18px 22px rgba(0,0,0,.35))}
+.photo.bleed{justify-content:flex-end;padding:28px 28px 0}
+.photo.bleed img{max-height:380px;filter:none;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 16%);mask-image:linear-gradient(180deg,transparent 0,#000 16%)}
+.photo .tile{background:var(--white);border-radius:14px;padding:18px;box-shadow:0 18px 30px -16px rgba(0,0,0,.5)}
+.photo .tile img{max-height:220px;filter:none}
+.photo small{position:absolute;left:16px;bottom:14px;font-size:12px;color:var(--tx-2);border:1px solid var(--line-2);padding:3px 10px;border-radius:999px}
+.body{padding:30px 32px 32px;display:flex;flex-direction:column;gap:16px;min-width:0}
+.head{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
+.tag{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 11px;border-radius:999px}
+.tag.cluster{background:var(--sky);color:var(--navy-3)}
+.tag.novo{background:transparent;color:var(--tx);border:1px solid var(--line-2)}
+.done{font-size:13px;color:#7fe0b0;font-weight:600;display:none;align-items:center;gap:7px}
+.done::before{content:"";width:5px;height:10px;border:solid #7fe0b0;border-width:0 2px 2px 0;transform:translateY(-2px) rotate(45deg)}
+.card.is-done .done{display:inline-flex}
+h2{font-family:var(--font-title);font-weight:700;font-size:26px;line-height:1.2;margin:0;color:var(--tx);letter-spacing:-.01em}
+.rule{font-size:14px;color:var(--tx-3);margin:-8px 0 0}
+details{font-size:14px;color:var(--tx-2)}
+summary{cursor:pointer;font-weight:600;color:var(--sky);width:max-content;max-width:100%}
+details p{margin:10px 0 0;max-width:70ch;line-height:1.6}
+
+fieldset{border:0;margin:4px 0 0;padding:0;min-width:0}
+legend{font-family:var(--font-title);font-weight:500;font-size:15px;margin-bottom:12px;color:var(--tx-2)}
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer;z-index:1}
+.opt label{display:flex;align-items:center;gap:12px;min-height:60px;padding:12px 18px;border:1.5px solid var(--line-2);border-radius:12px;cursor:pointer;background:var(--surface);transition:border-color .15s,background-color .15s}
+.opt input:hover + label{border-color:var(--sky);background:var(--surface-2)}
+.opt .radio{width:20px;height:20px;border-radius:50%;border:2px solid var(--line-2);flex:none;display:grid;place-items:center;transition:border-color .15s}
+.opt .radio::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--navy);transform:scale(0);transition:transform .15s}
+.opt .txt{font-family:var(--font-title);font-weight:700;font-size:18px;color:var(--tx);overflow-wrap:anywhere}
+.opt .txt.empty{font-weight:500;color:var(--tx-2);font-size:16px}
+.opt.think .txt{font-weight:500;font-family:var(--font-body);color:var(--tx-2);font-size:15px}
+.opt input:checked + label{border-color:var(--white);background:var(--white)}
+.opt input:checked + label .txt{color:var(--navy)}
+.opt input:checked + label .radio{border-color:var(--navy)}
+.opt input:checked + label .radio::after{transform:scale(1)}
+.opt input:focus-visible + label{outline:3px solid var(--sky);outline-offset:3px}
+.opt input:disabled{cursor:not-allowed}
+.opt input:disabled + label{cursor:not-allowed;opacity:.55}
+
+.nota{white-space:pre-line;margin:10px 2px 0;font-size:12.5px;line-height:1.5;color:var(--tx-3);max-width:70ch}
+.sug label{display:block;font-family:var(--font-title);font-weight:500;font-size:15px;margin-bottom:10px;color:var(--tx-2)}
+.sug label span{font-family:var(--font-body);font-weight:400;color:var(--tx-3);font-size:14px}
+textarea{width:100%;min-height:88px;resize:vertical;border:1.5px solid var(--line-2);border-radius:12px;padding:12px 16px;background:rgba(23,34,62,.55);color:var(--tx);font-size:15px;line-height:1.5}
+textarea::placeholder{color:var(--tx-3)}
+textarea:hover{border-color:var(--sky)}
+textarea:focus-visible{outline:none;border-color:var(--sky);box-shadow:0 0 0 3px rgba(139,184,232,.35)}
+textarea:disabled{opacity:.55;cursor:not-allowed}
+
+/* Resultados */
+.res-top{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:22px}
+.res-top p{margin:0;color:var(--tx-2)}
+.btn{border:1px solid var(--white);background:var(--white);color:var(--navy);border-radius:12px;padding:10px 20px;min-height:44px;font-weight:700;cursor:pointer;transition:background-color .15s,border-color .15s}
+.btn:hover{background:var(--sky);border-color:var(--sky)}
+.res{background:var(--navy-2);border:1px solid var(--line);border-radius:var(--radius);padding:26px 28px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px}
+.res h3{font-family:var(--font-title);font-weight:700;font-size:19px;color:var(--tx);margin:0 0 4px}
+.res .meta{font-size:13px;color:var(--tx-3);margin:0 0 16px;font-variant-numeric:tabular-nums}
+.bars{display:grid;gap:12px}
+.barrow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 12px;font-size:14px}
+.barrow .nm{font-weight:600;overflow-wrap:anywhere}
+.barrow .ct{font-variant-numeric:tabular-nums;color:var(--tx-2)}
+.track{grid-column:1/-1;height:8px;border-radius:99px;background:rgba(255,255,255,.1);overflow:hidden}
+.fill{height:100%;background:rgba(255,255,255,.55);border-radius:99px;transform-origin:left;transition:transform .3s}
+.barrow.top1 .fill{background:var(--sky)}
+.sugs h4{font-family:var(--font-title);font-size:14px;font-weight:700;margin:0 0 12px;color:var(--tx-2)}
+.sugs ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.sugs li{font-size:14px;border-bottom:1px solid var(--line);padding-bottom:12px}
+.sugs li:last-child{border-bottom:0}
+.sugs .by{display:block;font-size:12px;color:var(--tx-3);margin-top:3px}
+.empty{color:var(--tx-3);font-size:14px;margin:0}
+.res-list{display:grid;gap:18px}
+
+footer{border-top:1px solid var(--line);color:var(--tx-3);font-size:14px}
+footer .wrap{padding-top:26px;padding-bottom:30px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer b{color:var(--tx);font-family:var(--font-title);font-weight:500}
+footer .sig{font-family:var(--font-title);font-weight:300;color:var(--tx-2)}
+
+@media (max-width:860px){
+  .bar{position:static}
+  .card{grid-template-columns:minmax(0,1fr)}
+  .photo{min-height:260px;padding:26px 22px 40px}
+  .photo img{max-height:210px}
+  .photo .tile img{max-height:170px}
+  .photo.bleed{padding:22px 22px 0}
+  .photo.bleed img{max-height:300px;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 16%,#000 82%,transparent);mask-image:linear-gradient(180deg,transparent 0,#000 16%,#000 82%,transparent)}
+  .res{grid-template-columns:minmax(0,1fr)}
+  .logo{margin-bottom:36px}
+}
+@media (max-width:520px){
+  .wrap{padding:0 16px}
+  .top .wrap{padding-top:26px;padding-bottom:34px}
+  .body{padding:22px 18px 24px}
+  .opts{grid-template-columns:minmax(0,1fr)}
+  .status{margin-left:0;width:100%}
+  h2{font-size:22px}
+  .lead{font-size:16px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* ---------- Específico da versão GitHub Pages ---------- */
+.ident{background:var(--navy-2);border:1px solid var(--line);border-radius:var(--radius);padding:24px 28px;margin-bottom:28px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,360px);gap:16px 28px;align-items:center}
+.ident h2{font-size:20px;margin:0 0 4px}
+.ident p{margin:0;color:var(--tx-2);font-size:15px}
+.ident label{display:block;font-family:var(--font-title);font-weight:500;font-size:14px;color:var(--tx-2);margin-bottom:8px}
+.ident input{width:100%;min-height:48px;border:1.5px solid var(--line-2);border-radius:12px;padding:10px 16px;background:rgba(23,34,62,.55);color:var(--tx);font-size:16px}
+.ident input::placeholder{color:var(--tx-3)}
+.ident input:hover{border-color:var(--sky)}
+.ident input:focus-visible{outline:none;border-color:var(--sky);box-shadow:0 0 0 3px rgba(139,184,232,.35)}
+.ident input[aria-invalid="true"]{border-color:#ff8a8a}
+.field-err{margin:8px 0 0;font-size:13px;color:#ffb4b4;min-height:1em}
+.send{margin-top:36px;background:var(--navy-2);border:1px solid var(--line);border-radius:var(--radius);padding:28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px}
+.send h2{font-size:20px;margin:0 0 4px}
+.send p{margin:0;color:var(--tx-2);font-size:15px;max-width:62ch}
+.send .btn{min-width:220px;font-size:16px}
+.btn[disabled]{opacity:.6;cursor:progress}
+.send-msg{flex-basis:100%;margin:0;font-size:15px;min-height:1.4em}
+.send-msg.ok{color:#7fe0b0}.send-msg.err{color:#ffb4b4}
+@media (max-width:860px){.ident{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:520px){.ident,.send{padding:20px 18px}.send .btn{width:100%}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <img class="logo" src="img/logo-dellamed-branco.png" alt="Dellamed" width="220" height="47">
+    <p class="kicker">Votação interna · Marketing</p>
+    <h1><b>Nomes dos lançamentos</b> 2027</h1>
+    <p class="lead">Para cada produto, escolha o nome que você prefere ou marque "Pensar melhor". Se tiver outra ideia, escreva no campo de sugestões. No final da página, clique em "Enviar respostas". Se mudar de ideia depois, é só alterar e enviar de novo: vale a última versão.</p>
+  </div>
+</header>
+
+<div class="bar">
+  <div class="wrap">
+    <div class="chips" id="chips" aria-label="Filtrar produtos"></div>
+    <span class="progress" id="progress"></span>
+    <span class="status" id="status" role="status" aria-live="polite"><span class="dot"></span><span id="status-txt">Rascunho salvo neste aparelho</span></span>
+  </div>
+</div>
+
+<main>
+  <div class="wrap">
+    <p class="notice" id="notice" hidden></p>
+
+    <section class="ident" aria-labelledby="ident-title">
+      <div>
+        <h2 id="ident-title">Antes de começar</h2>
+        <p>Seu nome aparece só para o Marketing, junto com as suas respostas.</p>
+      </div>
+      <div>
+        <label for="nome">Seu nome</label>
+        <input id="nome" name="nome" autocomplete="name" maxlength="80" placeholder="Nome e sobrenome">
+        <p class="field-err" id="nome-err" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section id="view-vote"><div class="list" id="list"></div></section>
+
+    <section class="send" aria-labelledby="send-title">
+      <div>
+        <h2 id="send-title">Tudo certo?</h2>
+        <p id="send-sub">Confira suas escolhas e envie. Você pode reenviar quantas vezes quiser.</p>
+      </div>
+      <button class="btn" id="enviar" type="button">Enviar respostas</button>
+      <p class="send-msg" id="send-msg" aria-live="polite"></p>
+    </section>
+  </div>
+</main>
+
+<footer><div class="wrap"><span><b>Dellamed</b> · Marketing de Produto</span><span class="sig">Saúde e bem-estar para todos.</span></div></footer>
+
+<script>
+/* ===== CONFIGURAÇÃO =====
+   Cole aqui a URL do App da Web gerada no Apps Script (termina em /exec). */
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyq4_h8AAVW7GpzJsqdLRsCHem1sXxc84PzeKUksbYWqDpfzjlEK5vCDr8BuMY7H7ax1A/exec';
+
+const PROVISORIAS = new Set(['baruk']);
+const MOLDURA = new Set([]);
+const SANGRIA = new Set([]);
+const foto = id => 'img/' + id + '.webp';
+
+const PRODUTOS = [
+  {id:'banho', tipo:'Cluster', nome:'Cadeira de Banho D30 Cluster', regra:'', opcoes:['','',''],
+   desc:'Cadeira de banho e higiênica em aço, com assento de abertura frontal, capacidade para até 100 - 130 kg (a definir), rodízios e apoio de pés rebatível. Mantém as características principais da D30, apoio de pés escamoteável como a D40, com garantia total de 12 meses. Versão exclusiva para o canal offline, com posicionamento adequado também para farmácias.'},
+  {id:'andador', tipo:'Cluster', nome:'Andador 3 Barras Cluster', regra:'', opcoes:['','',''],
+   desc:'Andador de 3 barras com estrutura híbrida em aço e alumínio, regulagem de altura e ponteiras antiderrapantes. Desenvolvido a partir do projeto D10 POP (novo), com fornecimento em caixa master de 4 unidades. Versão exclusiva para o canal offline.'},
+  {id:'rodas', tipo:'Cluster', nome:'Cadeira de Rodas D100 Cluster', regra:'', opcoes:['','',''],
+   desc:'Cadeira de rodas dobrável em aço, com braço escamoteável, tamanho T48 e apoio de pés. Mantém as características principais da nova D100, diferenciando-se pela nova cor de estrutura e/ou estofado, podendo ter acabamento bicolor. Versão exclusiva para o canal offline.'},
+  {id:'colchao', tipo:'Cluster', nome:'Colchão Air Plus Cluster', regra:'', opcoes:['','',''],
+   desc:'Colchão pneumático de ar com compressor, indicado para auxiliar na prevenção de lesões por pressão em pacientes acamados. Baseado no projeto Air Plus Light, em 2 SKUs, com nova cor de colchão e capa protetora inclusa. Versão exclusiva para o canal offline.'},
+  {id:'monitor-braco', tipo:'Novo', nome:'Monitor de Pressão Braço Honsun', regra:'Ref: LD 521', opcoes:['','',''],
+   desc:'Monitor digital de pressão arterial de braço, destinado à medição não invasiva da pressão arterial e da frequência cardíaca, com alimentação por pilhas, display para visualização dos resultados e braçadeira ajustável. Produto portátil, de fácil utilização e indicado para monitoramento da pressão arterial em ambiente domiciliar.'},
+  {id:'monitor-pulso', tipo:'Novo', nome:'Monitor de Pressão Pulso Honsun', regra:'Ref: LD 731', opcoes:['','',''],
+   desc:'Monitor digital de pressão arterial de pulso, destinado à medição não invasiva da pressão arterial e da frequência cardíaca, com alimentação por pilhas, display para visualização dos resultados e sistema de fixação ajustável no pulso. Produto compacto, portátil e indicado para monitoramento da pressão arterial em ambiente domiciliar.'},
+  {id:'baruk', tipo:'Novo', nome:'Baruk', regra:'2 modelos: Plana e Retropé', opcoes:['','',''],
+   desc:'Calçado ortopédico pós-operatório tipo Baruk, desenvolvido para auxiliar na proteção e acomodação do pé durante o período de recuperação, disponível em diferentes modelos de apoio, incluindo plano, descarga de antepé e descarga de retropé, com fechamento ajustável e diferentes numerações, destinado ao uso conforme orientação profissional em situações pós-operatórias e outras necessidades ortopédicas.'},
+  {id:'ko-refrescante', tipo:'Novo', nome:'Fita KO com Efeito Refrescante', regra:'Linha KO', opcoes:['KO Fresh','KO Ice','KO Cryo*'],
+   nota:'*De "Crioterapia", tratamentos que utilizam temperaturas extremamente baixas para aliviar dores musculares, reduzir inflamações ou auxiliar na recuperação física.',
+   desc:'Bandagem autoadesiva elástica tipo Coban, desenvolvida para suporte e compressão de diferentes regiões do corpo, com aplicação sobre ela mesma, sem necessidade de adesão direta à pele ou aos pelos. Possui efeito refrescante durante o uso, boa elasticidade e ajuste da compressão, sendo indicada para atividades esportivas, fisioterapia e suporte ortopédico.'},
+  {id:'ko-rosto', tipo:'Novo', nome:'Fita KO para Rosto', regra:'Linha KO', opcoes:['KO Lift','KO Beauty','KO Face'],
+   desc:'Fita kinesiológica adesiva pré-cortada para aplicação facial, desenvolvida para uso em regiões específicas do rosto. Produto flexível, de tamanho reduzido e com formato adequado à anatomia facial, destinado a aplicações estéticas e de suporte, mantendo os padrões de qualidade e desempenho da linha KO.'},
+  {id:'ko-coban', tipo:'Novo', nome:'Fita KO Coban', regra:'Linha KO', opcoes:['KO Snug*','KO Layer','KO Cling**'],
+   nota:'*Justo/bem ajustado\n**Se agarrar a algo',
+   desc:'Bandagem autoadesiva elástica tipo Coban, desenvolvida para compressão e suporte de diferentes regiões do corpo, aderindo sobre ela mesma sem colar diretamente à pele ou aos pelos. Produto leve, flexível, respirável e resistente à umidade, indicado para aplicações ortopédicas, esportivas e de suporte, com diferentes opções de largura.'},
+  {id:'termometro', tipo:'Novo', nome:'Termômetros Low Cost', regra:'2 modelos em análise: rígido e flexível', opcoes:['','',''],
+   desc:'Termômetro desenvolvido como uma versão mais acessível e econômica dos modelos atuais, com proposta de preço 20% inferior. Contará com embalagem simples e de baixo custo, sem necessidade de impermeabilidade, mantendo as funcionalidades essenciais do produto. O objetivo é oferecer uma alternativa mais competitiva, voltada ao público que busca praticidade e economia. Ainda em análise se teremos fixo e flexível.'},
+  {id:'bolsa-gelo', tipo:'Novo', nome:'Bolsa de Gelo com Cintas', regra:'', opcoes:['','',''],
+   desc:'Bolsa de gelo desenvolvida para aplicação de compressas frias em diferentes regiões do corpo, auxiliando no alívio de dores e desconfortos. Possui cintas ajustáveis que permitem fixar o produto diretamente na área desejada, proporcionando maior praticidade, conforto e segurança durante o uso, sem a necessidade de segurá-lo com as mãos.'}
+];
+const KEYS = ['o1','o2','o3','pensar'];
+const optLabel = (p,k) => k==='pensar' ? 'Pensar melhor' : (p.opcoes[KEYS.indexOf(k)] || ('Nome '+(KEYS.indexOf(k)+1)));
+
+const $ = s => document.querySelector(s);
+const el = (tag, attrs={}, ...kids) => { const e=document.createElement(tag); for(const [k,v] of Object.entries(attrs)){ if(k==='class') e.className=v; else if(k==='text') e.textContent=v; else e.setAttribute(k,v);} kids.forEach(c=>c&&e.append(c)); return e; };
+
+/* ---------- Rascunho local (só neste aparelho) ---------- */
+const LS='dellamed-nomes-2027';
+const load = () => { try{ return JSON.parse(localStorage.getItem(LS)||'{}'); }catch(e){ return {}; } };
+const store = d => { try{ localStorage.setItem(LS, JSON.stringify(d)); }catch(e){} };
+const novoId = () => (crypto.randomUUID ? crypto.randomUUID() : 'v-'+Date.now().toString(36)+Math.random().toString(36).slice(2,10));
+let draft = load();
+if(!draft.id) draft.id = novoId();
+draft.respostas = draft.respostas || {};
+let respostas = draft.respostas;
+let filtro = 'Todos';
+let enviadoEm = draft.enviadoEm || null;
+const saveDraft = () => { draft.respostas=respostas; store(draft); };
+
+/* ---------- Render ---------- */
+function renderChips(){
+  const box=$('#chips'); box.textContent='';
+  const counts={Todos:PRODUTOS.length, Cluster:PRODUTOS.filter(p=>p.tipo==='Cluster').length, Novo:PRODUTOS.filter(p=>p.tipo==='Novo').length};
+  [['Todos','Todos'],['Cluster','Cluster'],['Novo','Novos']].forEach(([k,lbl])=>{
+    const b=el('button',{class:'chip','aria-pressed':String(filtro===k),type:'button'}, document.createTextNode(lbl), el('span',{class:'n',text:String(counts[k])}));
+    b.addEventListener('click',()=>{filtro=k;renderChips();applyFilter();});
+    box.append(b);
+  });
+}
+function applyFilter(){ document.querySelectorAll('.card').forEach(c=>{ c.hidden = !(filtro==='Todos' || c.dataset.tipo===filtro); }); }
+function renderList(){
+  const list=$('#list'); list.textContent='';
+  PRODUTOS.forEach(p=>{
+    const card=el('article',{class:'card','data-tipo':p.tipo,id:'p-'+p.id});
+    const ph=el('div',{class:'photo'+(SANGRIA.has(p.id)?' bleed':'')});
+    const im=el('img',{src:foto(p.id),alt:p.nome,loading:'lazy',decoding:'async'});
+    ph.append(MOLDURA.has(p.id)?el('div',{class:'tile'},im):im);
+    if(PROVISORIAS.has(p.id)) ph.append(el('small',{text:'Foto provisória'}));
+    const body=el('div',{class:'body'});
+    body.append(el('div',{class:'head'},
+      el('span',{class:'tag '+(p.tipo==='Cluster'?'cluster':'novo'),text:p.tipo==='Cluster'?'Cluster':'Novo'}),
+      el('span',{class:'done',text:'Respondido'})), el('h2',{text:p.nome}));
+    if(p.regra) body.append(el('p',{class:'rule',text:p.regra}));
+    body.append(el('details',{},el('summary',{text:'Ver descritivo'}),el('p',{text:p.desc})));
+    const fs=el('fieldset',{}, el('legend',{text:'Qual nome você prefere?'}));
+    const opts=el('div',{class:'opts'});
+    KEYS.forEach(k=>{
+      const id=`r-${p.id}-${k}`;
+      const inp=el('input',{type:'radio',name:'r-'+p.id,id,value:k});
+      if(respostas[p.id]?.opcao===k) inp.checked=true;
+      inp.addEventListener('change',()=>{ respostas[p.id]={...(respostas[p.id]||{}),opcao:k}; markDone(p.id); renderProgress(); changed(); });
+      const named = k==='pensar' || p.opcoes[KEYS.indexOf(k)];
+      opts.append(el('div',{class:'opt'+(k==='pensar'?' think':'')},inp,
+        el('label',{for:id}, el('span',{class:'radio','aria-hidden':'true'}), el('span',{class:'txt'+(named?'':' empty'),text:optLabel(p,k)}))));
+    });
+    fs.append(opts);
+    if(p.nota) fs.append(el('p',{class:'nota',text:p.nota}));
+    body.append(fs);
+    const tid='s-'+p.id;
+    const ta=el('textarea',{id:tid,placeholder:'Outro nome, um ajuste numa das opções, um comentário…',maxlength:'600'});
+    ta.value=respostas[p.id]?.sugestao||'';
+    let t; ta.addEventListener('input',()=>{ respostas[p.id]={...(respostas[p.id]||{}),sugestao:ta.value}; clearTimeout(t); t=setTimeout(changed,500); });
+    body.append(el('div',{class:'sug'}, el('label',{for:tid}, document.createTextNode('Sugestões '), el('span',{text:'(opcional)'})), ta));
+    card.append(ph,body); list.append(card); markDone(p.id);
+  });
+  applyFilter(); renderProgress();
+}
+function markDone(id){ const c=document.getElementById('p-'+id); if(c) c.classList.toggle('is-done', !!respostas[id]?.opcao); }
+function respondidos(){ return PRODUTOS.filter(p=>respostas[p.id]?.opcao).length; }
+function renderProgress(){
+  const n=respondidos(); const pr=$('#progress'); pr.textContent='';
+  pr.append(document.createTextNode('Você respondeu '), el('b',{text:String(n)}), document.createTextNode(` de ${PRODUTOS.length}`));
+  $('#send-sub').textContent = n===PRODUTOS.length
+    ? 'Você respondeu todos os produtos. Confira e envie.'
+    : `Você respondeu ${n} de ${PRODUTOS.length} produtos. Pode enviar assim mesmo e completar depois.`;
+}
+function setStatus(kind,msg){ $('#status').className='status '+kind; $('#status-txt').textContent=msg; }
+function changed(){
+  saveDraft();
+  if(enviadoEm) setStatus('busy','Alterações ainda não enviadas');
+  else setStatus('', 'Rascunho salvo neste aparelho');
+}
+
+/* ---------- Nome ---------- */
+const nomeIn=$('#nome');
+nomeIn.value = draft.nome || '';
+nomeIn.addEventListener('input',()=>{ draft.nome=nomeIn.value; nomeIn.removeAttribute('aria-invalid'); $('#nome-err').textContent=''; store(draft); });
+
+/* ---------- Envio ---------- */
+const btn=$('#enviar'), msg=$('#send-msg');
+function showMsg(kind,text){ msg.className='send-msg '+kind; msg.textContent=text; }
+btn.addEventListener('click', async ()=>{
+  const nome=nomeIn.value.trim();
+  if(nome.length<3){
+    nomeIn.setAttribute('aria-invalid','true'); $('#nome-err').textContent='Escreva seu nome para enviar.';
+    nomeIn.focus(); nomeIn.scrollIntoView({block:'center'}); showMsg('err','Falta o seu nome, lá no começo da página.'); return;
+  }
+  const lista = PRODUTOS.filter(p=>respostas[p.id]?.opcao || respostas[p.id]?.sugestao?.trim())
+    .map(p=>({produtoId:p.id, produto:p.nome, tipo:p.tipo, escolha: respostas[p.id]?.opcao ? optLabel(p,respostas[p.id].opcao) : '', sugestao:(respostas[p.id]?.sugestao||'').trim()}));
+  if(!lista.length){ showMsg('err','Escolha pelo menos um nome antes de enviar.'); return; }
+  if(!/^https:\/\/script\.google\.com\//.test(SCRIPT_URL)){ showMsg('err','A votação ainda não foi ligada à planilha. Avise o Marketing.'); return; }
+  btn.disabled=true; btn.textContent='Enviando…'; showMsg('', ''); setStatus('busy','Enviando…');
+  try{
+    const r = await fetch(SCRIPT_URL,{method:'POST',body:JSON.stringify({id:draft.id,nome,respostas:lista})});
+    let ok=r.ok;
+    try{ const j=await r.json(); ok = ok && j.ok; }catch(e){}
+    if(!ok) throw new Error('resposta');
+    enviadoEm=new Date().toISOString(); draft.enviadoEm=enviadoEm; draft.nome=nome; store(draft);
+    showMsg('ok', `Respostas enviadas, ${nome.split(' ')[0]}. Obrigado! Se mudar de ideia, altere e envie de novo.`);
+    setStatus('ok','Respostas enviadas');
+  }catch(e){
+    showMsg('err','Não foi possível enviar. Confira sua internet e tente de novo. Suas escolhas continuam salvas neste aparelho.');
+    setStatus('err','Envio falhou');
+  }finally{ btn.disabled=false; btn.textContent='Enviar respostas'; }
+});
+
+renderChips(); renderList();
+if(enviadoEm){ setStatus('ok','Respostas já enviadas antes'); showMsg('ok','Você já enviou suas respostas. Pode alterar e enviar de novo.'); }
+if(!/^https:\/\/script\.google\.com\//.test(SCRIPT_URL)){ const n=$('#notice'); n.hidden=false; n.textContent='Versão de teste: a votação ainda não está ligada à planilha.'; }
+</script>
+</body>
+</html>
